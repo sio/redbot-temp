@@ -132,3 +132,8 @@ $(MODULES):
 
 
 include Makefile.pyproject
+
+venv: | $(VENV)/$(MARKER)-dev
+$(VENV)/$(MARKER)-dev: $(VENV)/$(MARKER)
+	$(VENV)/pip install -e .[dev]
+	touch $@
